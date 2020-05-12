@@ -9,12 +9,37 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
+    
+    func initDelegate() {
+        self.tableView.delegate = self
+    }
+    
+    func initView() {
+        
+    }
+    
+    let tableView: MyTableView = {
+        let tableView = MyTableView()
+        tableView.initUI()
+        return tableView
+    }()
+    
 }
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+}
+
+
 
