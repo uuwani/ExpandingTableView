@@ -26,9 +26,8 @@ class MyTableView: UITableView, MyTableViewUI, MyTableViewDataSource {
     func initUI() {
         self.backgroundColor = myBackgroundColor
         self.separatorStyle = .none
+        self.tableFooterView = UIView()
     }
-    
-    
 }
 
 //MARK: - numOfRowInSections Function
@@ -50,13 +49,26 @@ extension MyTableView {
 // MARK: - tableView expanding function
 extension MyTableView {
     
-    func expanding(selected:IndexPath) {
-        let isOpened = self.myData.sectionsOpened[selected.section]
+    /**
+     Function to expand the section selected by the user
+     
+      - Author:
+        Wanni
+      - Version:
+        0.1
+     
+     - Parameters:
+        - selected: user selected section
+    */
+    
+    func expanding(selected indexPath :IndexPath) {
+        
+        let isOpened = self.myData.sectionsOpened[indexPath.section]
         switch isOpened {
         case true:
-            self.deleteRows(selected: selected)
+            self.deleteRows(selected: indexPath)
         default:
-            self.insertRows(selected: selected)
+            self.insertRows(selected: indexPath)
         }
     }
     
