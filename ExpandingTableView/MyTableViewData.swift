@@ -10,15 +10,19 @@ import UIKit
 
 
 protocol MyTableViewDataProtocol {
-    var sectionItemNumber: Int { get }
-    var sectionItemTitles: [String] { get }
+    
+    var sectionNumber: Int { get }
+    var sectionTitles: [String] { get }
     var numOfRowInSections: [Int] { get }
+    var sectionsOpened: [Bool] { get set }
+    
 }
 
 struct MyTableViewData: MyTableViewDataProtocol {
     
-    var sectionItemNumber: Int = 3
-    var sectionItemTitles: [String] = ["Test1","Test2","Test3"]
-    var numOfRowInSections: [Int] = [3 , 4, 5]
+    let sectionNumber: Int = 3
+    var sectionTitles: [String] = ["Test1", "Test2", "Test3"]
+    var numOfRowInSections: [Int] = [1, 2, 3]
+    var sectionsOpened: [Bool] = [false, false, false]
     
 }
