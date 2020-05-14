@@ -29,6 +29,7 @@ class ExpandingTableView: UITableView, ExpandingTableViewUI, ExpandingTableViewD
         self.tableFooterView = UIView()
         self.estimatedRowHeight = 50
         self.rowHeight = UITableView.automaticDimension
+//        self.isEditing = true
         
     }
 }
@@ -38,10 +39,10 @@ class ExpandingTableView: UITableView, ExpandingTableViewUI, ExpandingTableViewD
 extension ExpandingTableView {
     
     func numberOfRowsInSection(section: Int) -> Int {
-        let isOpened = self.myData.sectionsOpened[section]
+        let isOpened = myData.sectionsData[section].isOpened
         switch isOpened {
         case true:
-            return self.myData.numOfRowInSections[section] + 1
+            return myData.sectionsData[section].rowsNumber + 1
         default:
             return 1
         }
@@ -52,11 +53,12 @@ extension ExpandingTableView {
 extension ExpandingTableView {
     
     func getRowTitle(indexPath: IndexPath) -> String {
-        return self.myData.rowTitles[indexPath.section][indexPath.row - 1]
+        
+        return myData.sectionsData[indexPath.section].rowsTitles[indexPath.row - 1]
     }
     
     func getSectionTitle(indexPath: IndexPath) -> String {
-        return self.myData.sectionTitles[indexPath.section]
+        return myData.sectionsData[indexPath.section].sectionTitle
     }
 }
 
@@ -78,7 +80,7 @@ extension ExpandingTableView {
     
     func expanding(selectedIndexPath indexPath :IndexPath) {
         
-        let isOpened = self.myData.sectionsOpened[indexPath.section]
+        let isOpened = myData.sectionsData[indexPath.section].isOpened
         switch isOpened {
         case true:
             self.deleteRows(selected: indexPath)
@@ -87,13 +89,13 @@ extension ExpandingTableView {
         }
     }
     
-    private func deleteRows(selected:IndexPath) {
-        self.myData.sectionsOpened[selected.section] = false
+    private func deleteRows(selected indexPath: IndexPath) {
+        myData.sectionsData[indexPath.section].isOpened = false
         var indexesPath = [IndexPath]()
-        let sectionNumber = self.myData.numOfRowInSections[selected.section]
+        let sectionNumber = myData.sectionsData[indexPath.section].rowsNumber
         
         for row in 0..<sectionNumber {
-            let index = IndexPath(row: row + 1, section: selected.section)
+            let index = IndexPath(row: row + 1, section: indexPath.section)
             indexesPath.append(index)
         }
         
@@ -103,13 +105,13 @@ extension ExpandingTableView {
         
     }
     
-    private func insertRows(selected:IndexPath) {
-        self.myData.sectionsOpened[selected.section] = true
+    private func insertRows(selected indexPath: IndexPath) {
+        myData.sectionsData[indexPath.section].isOpened = true
         var indexesPath = [IndexPath]()
-        let sectionNumber = self.myData.numOfRowInSections[selected.section]
+        let sectionNumber = myData.sectionsData[indexPath.section].rowsNumber
         
         for row in 0..<sectionNumber {
-            let index = IndexPath(row: row + 1, section: selected.section)
+            let index = IndexPath(row: row + 1, section: indexPath.section)
             indexesPath.append(index)
         }
         

@@ -12,26 +12,18 @@ import UIKit
 protocol ExpandingTableViewDataProtocol {
     
     var sectionNumber: Int { get }
-    var sectionTitles: [String] { get }
-    var numOfRowInSections: [Int] { get }
-    var sectionsOpened: [Bool] { get set }
+    var sectionsData:[MyData] { get set }
     
 }
 
 struct ExpandingTableViewData: ExpandingTableViewDataProtocol {
     
-    var sectionTitles: [String] = ["Section1", "Section2", "Section3"]
-    var rowTitles: [[String]] = [["item1"], ["item2","item2"], ["item3","item3","item3"]]
+    var sectionsData = [MyData(sectionTitle: "section1", rowsTitles: ["item1"]),
+                        MyData(sectionTitle: "section2", rowsTitles: ["item2", "item2"]),
+                        MyData(sectionTitle: "section3", rowsTitles: ["item3", "item3", "item3"])]
     
-    var sectionNumber: Int { return sectionTitles.count }
-    
-    var numOfRowInSections: [Int] {
-        var numOfRowInSections = [Int]()
-        for item in rowTitles {
-            numOfRowInSections.append(item.count)
-        }
-        return numOfRowInSections
+    var sectionNumber: Int {
+        return sectionsData.count
     }
-    var sectionsOpened: [Bool] = [false, false, false]
 
 }

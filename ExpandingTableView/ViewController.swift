@@ -76,6 +76,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.expanding(selectedIndexPath: indexPath)
     }
     
+// MARK: - Editing Function Test
+    
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        return .none
+//    }
+//
+//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+//        return false
+//    }
+//
+//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//
+//        let movedObject = self.tableView.myData.sectionsData[sourceIndexPath.row]
+//        self.tableView.myData.sectionsData.remove(at: sourceIndexPath.row)
+//        self.tableView.myData.sectionsData.insert(movedObject, at: destinationIndexPath.row)
+//    }
 }
 
 
