@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24A08498246A32C600F0D180 /* MyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A08497246A32C600F0D180 /* MyTableView.swift */; };
-		24A0849A246A40D900F0D180 /* MyTableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A08499246A40D900F0D180 /* MyTableViewData.swift */; };
+		24A08498246A32C600F0D180 /* ExpandingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A08497246A32C600F0D180 /* ExpandingTableView.swift */; };
+		24A0849A246A40D900F0D180 /* ExpandingTableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A08499246A40D900F0D180 /* ExpandingTableViewData.swift */; };
+		24A0849C246CC6A200F0D180 /* ExpandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0849B246CC6A200F0D180 /* ExpandingTableViewCell.swift */; };
 		24F5C1B1242E066E0052E315 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5C1B0242E066E0052E315 /* AppDelegate.swift */; };
 		24F5C1B3242E066E0052E315 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5C1B2242E066E0052E315 /* SceneDelegate.swift */; };
 		24F5C1B5242E066E0052E315 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5C1B4242E066E0052E315 /* ViewController.swift */; };
@@ -38,8 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		24A08497246A32C600F0D180 /* MyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableView.swift; sourceTree = "<group>"; };
-		24A08499246A40D900F0D180 /* MyTableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewData.swift; sourceTree = "<group>"; };
+		24A08497246A32C600F0D180 /* ExpandingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingTableView.swift; sourceTree = "<group>"; };
+		24A08499246A40D900F0D180 /* ExpandingTableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingTableViewData.swift; sourceTree = "<group>"; };
+		24A0849B246CC6A200F0D180 /* ExpandingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingTableViewCell.swift; sourceTree = "<group>"; };
 		24F5C1AD242E066E0052E315 /* ExpandingTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpandingTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F5C1B0242E066E0052E315 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F5C1B2242E066E0052E315 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,8 +110,9 @@
 				24F5C1B0242E066E0052E315 /* AppDelegate.swift */,
 				24F5C1B2242E066E0052E315 /* SceneDelegate.swift */,
 				24F5C1B4242E066E0052E315 /* ViewController.swift */,
-				24A08497246A32C600F0D180 /* MyTableView.swift */,
-				24A08499246A40D900F0D180 /* MyTableViewData.swift */,
+				24A08497246A32C600F0D180 /* ExpandingTableView.swift */,
+				24A08499246A40D900F0D180 /* ExpandingTableViewData.swift */,
+				24A0849B246CC6A200F0D180 /* ExpandingTableViewCell.swift */,
 				24F5C1B6242E066E0052E315 /* Main.storyboard */,
 				24F5C1BC242E06720052E315 /* Assets.xcassets */,
 				24F5C1BE242E06720052E315 /* LaunchScreen.storyboard */,
@@ -269,9 +272,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F5C1BB242E066E0052E315 /* ExpandingTableView.xcdatamodeld in Sources */,
-				24A08498246A32C600F0D180 /* MyTableView.swift in Sources */,
+				24A08498246A32C600F0D180 /* ExpandingTableView.swift in Sources */,
 				24F5C1B5242E066E0052E315 /* ViewController.swift in Sources */,
-				24A0849A246A40D900F0D180 /* MyTableViewData.swift in Sources */,
+				24A0849A246A40D900F0D180 /* ExpandingTableViewData.swift in Sources */,
+				24A0849C246CC6A200F0D180 /* ExpandingTableViewCell.swift in Sources */,
 				24F5C1B1242E066E0052E315 /* AppDelegate.swift in Sources */,
 				24F5C1B3242E066E0052E315 /* SceneDelegate.swift in Sources */,
 			);

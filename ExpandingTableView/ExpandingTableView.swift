@@ -9,30 +9,33 @@
 import Foundation
 import UIKit
 
-protocol MyTableViewUI {
+protocol ExpandingTableViewUI {
     var myBackgroundColor: UIColor { get }
     
 }
 
-protocol MyTableViewDataSource {
-    var myData: MyTableViewData { get }
+protocol ExpandingTableViewDataSource {
+    var myData: ExpandingTableViewData { get }
 }
 
-class MyTableView: UITableView, MyTableViewUI, MyTableViewDataSource {
+class ExpandingTableView: UITableView, ExpandingTableViewUI, ExpandingTableViewDataSource {
     
-    var myData: MyTableViewData = MyTableViewData()
-    var myBackgroundColor: UIColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+    var myData: ExpandingTableViewData = ExpandingTableViewData()
+    var myBackgroundColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     
     func initUI() {
         self.backgroundColor = myBackgroundColor
         self.separatorStyle = .none
         self.tableFooterView = UIView()
+        self.estimatedRowHeight = 50
+        self.rowHeight = UITableView.automaticDimension
+        
     }
 }
 
 //MARK: - numOfRowInSections Function
 
-extension MyTableView {
+extension ExpandingTableView {
     
     func numberOfRowsInSection(section: Int) -> Int {
         let isOpened = self.myData.sectionsOpened[section]
@@ -45,9 +48,21 @@ extension MyTableView {
     }
 }
 
+//MARK: - get TitleText From myData
+extension ExpandingTableView {
+    
+    func getRowTitle(indexPath: IndexPath) -> String {
+        return self.myData.rowTitles[indexPath.section][indexPath.row - 1]
+    }
+    
+    func getSectionTitle(indexPath: IndexPath) -> String {
+        return self.myData.sectionTitles[indexPath.section]
+    }
+}
+
 
 // MARK: - tableView expanding function
-extension MyTableView {
+extension ExpandingTableView {
     
     /**
      Function to expand the section selected by the user
@@ -61,7 +76,7 @@ extension MyTableView {
         - selected: user selected section
     */
     
-    func expanding(selected indexPath :IndexPath) {
+    func expanding(selectedIndexPath indexPath :IndexPath) {
         
         let isOpened = self.myData.sectionsOpened[indexPath.section]
         switch isOpened {

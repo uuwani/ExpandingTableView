@@ -12,11 +12,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initDelegate()
+        initDelegateAndDataSource()
         initTableView()
     }
     
-    func initDelegate() {
+    func initDelegateAndDataSource() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -30,8 +30,8 @@ class ViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
 
-    let tableView: MyTableView = {
-        let tableView = MyTableView()
+    let tableView: ExpandingTableView = {
+        let tableView = ExpandingTableView()
         tableView.initUI()
         return tableView
     }()
@@ -46,32 +46,34 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let tableView = tableView as? MyTableView else {
+        guard let tableView = tableView as? ExpandingTableView else {
             return 0
         }
         return tableView.numberOfRowsInSection(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = ExpandingTableViewCell()
+        guard let tableView = tableView as? ExpandingTableView else {
+            return UITableViewCell()
+        }
         
-        switch indexPath.section {
+        switch indexPath.row {
         case 0:
-            cell.backgroundColor = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
-        case 1:
-            cell.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
+            cell.takeTextAndPutItOnLabel(text: tableView.getSectionTitle(indexPath: indexPath))
         default:
-            cell.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            cell.takeTextAndPutItOnLabel(text: tableView.getRowTitle(indexPath: indexPath))
+
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let tableView = tableView as? MyTableView else {
+        guard let tableView = tableView as? ExpandingTableView else {
             return
         }
-        tableView.expanding(selected: indexPath)
+        tableView.expanding(selectedIndexPath: indexPath)
     }
     
 }
